@@ -1,0 +1,41 @@
+services: 
+  zookeeper:
+    container_name: zookeeper
+    build:
+      context: .
+    command: ['/kafka/bin/zookeeper-server-start.sh','/config/zookeeper.properties']
+    volumes:
+      - ./config:/config
+      - ./data/zookeeper:/zookeeper
+  broker1:
+    container_name: broker1
+    build:
+      context: .
+    depends_on:
+      - zookeeper
+    command: ['/kafka/bin/kafka-server-start.sh','/config/broker1.properties']
+    volumes:
+      - ./config:/config
+      - ./data/broker1:/kafka-logs
+
+  broker2:
+    container_name: broker2
+    build:
+      context: .
+    depends_on:
+      - zookeeper
+    command: ['/kafka/bin/kafka-server-start.sh','/config/broker2.properties']
+    volumes:
+      - ./config:/config
+      - ./data/broker2:/kafka-logs      
+
+  broker3:
+    container_name: broker3
+    build:
+      context: .
+    depends_on:
+      - zookeeper
+    command: ['/kafka/bin/kafka-server-start.sh','/config/broker3.properties']
+    volumes:
+      - ./config:/config
+      - ./data/broker3:/kafka-logs
