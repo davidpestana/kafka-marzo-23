@@ -1,0 +1,7 @@
+services:
+  tools:
+    build:
+      context: .
+    command: ['bash']
+    volumes:
+      - ./config:/config

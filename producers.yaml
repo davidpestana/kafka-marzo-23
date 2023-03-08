@@ -1,5 +1,0 @@
-services:
-  producer:
-    build:
-      context: .
-    command: ['bash']
