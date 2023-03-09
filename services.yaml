@@ -5,3 +5,4 @@ services:
     command: ['bash']
     volumes:
       - ./config:/config
+      - ./data:/data
