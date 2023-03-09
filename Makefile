@@ -1,10 +1,23 @@
 bootstrap-server = broker1:9092, broker2:9092, broker3:9092
 
 start:
-	docker compose -f docker-compose.yaml -f producers.yaml -f consumers.yaml up -d
+	docker compose up -d
+
+start-consumers:
+	docker compose -f consumers.yaml up -d
+
+start-producers:
+	docker compose  -f producers.yaml up -d
+
 
 logs:
 	docker compose logs -f
+
+logs-consumers:
+	docker compose -f consumers.yaml logs -f
+
+logs-producers:
+	docker compose -f producers.yaml logs -f
 
 cleanup:
 	docker compose down --remove-orphans
