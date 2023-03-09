@@ -41,7 +41,7 @@ services:
       - zookeeper
     command: ['/kafka/bin/kafka-server-start.sh','/config/broker3.properties']
     ports:
-      - 29093:29093
+      - 29094:29094
     volumes:
       - ./config:/config
       - ./data/broker3:/kafka-logs
