@@ -1,8 +1,7 @@
 bootstrap-server = broker1:9092, broker2:9092, broker3:9092
 
 start:
-	docker compose up -d
-	 
+	docker compose -f docker-compose.yaml -f producers.yaml -f consumers.yaml up -d
 
 logs:
 	docker compose logs -f
@@ -65,3 +64,10 @@ group-describe:
 		"./bin/kafka-consumer-groups.sh --bootstrap-server $(bootstrap-server) --describe --group $$group"
 tools:
 	docker compose -f services.yaml run --rm tools
+
+node:
+	docker compose -f producers.yaml run --rm producer-1 bash
+
+install:
+	docker compose -f producers.yaml run --rm producer-1 bash -c "npm i"
+	docker compose -f consumers.yaml run --rm consumer-1 bash -c "npm i"

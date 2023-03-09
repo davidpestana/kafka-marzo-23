@@ -1,0 +1,9 @@
+services:
+  producer-1:
+    image: node
+    command: ['node', 'index.js']
+    deploy:
+      replicas: 10
+    working_dir: /app
+    volumes:
+      - ./src/producer:/app
