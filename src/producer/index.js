@@ -1,9 +1,12 @@
 const { Kafka } = require('kafkajs')
+const { SchemaRegistry } = require('@kafkajs/confluent-schema-registry')
 
 const kafka = new Kafka({
   clientId: 'producer-1',
   brokers: ['broker1:9092', 'broker2:9092', 'broker3:9092'],
 })
+
+const registry = new SchemaRegistry({ host: 'http://schema-registry:8081/' })
 
 
 const producer = kafka.producer()

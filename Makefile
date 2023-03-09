@@ -31,7 +31,7 @@ topic-create:
 	read -p "Enter partitions number: " partitions; \
 	read -p "Enter replication factor: " replication; \
 	docker compose -f services.yaml run --rm tools bash -c \
-		"./bin/kafka-topics.sh --bootstrap-server $(bootstrap-server) --create --partitions $$partitions --replication-factor $$replication --topic $$topic"
+		"./bin/kafka-topics.sh --bootstrap-server $(bootstrap-server) --create --partitions $$partitions --replication-factor $$replication --topic $$topic --config clave=valor --config clave=valor"
 
 
 topic-delete:

@@ -45,3 +45,18 @@ services:
     volumes:
       - ./config:/config
       - ./data/broker3:/kafka-logs
+
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.3.0
+    hostname: schema-registry
+    container_name: schema-registry
+    depends_on:
+      - broker1
+      - broker2
+      - broker3
+    ports:
+      - "8081:8081"
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: 'broker1:9092,broker2:9092,broker3:9092'
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
