@@ -8,10 +8,8 @@ logs:
 
 cleanup:
 	docker compose down --remove-orphans
-	docker rm -f $(docker ps -aq)
 	docker compose -f services.yaml run --rm tools bash -c "rm -rf /data/*"
-
-
+	
 topic-create:
 	@read -p "Enter topic name: " topic; \
 	read -p "Enter partitions number: " partitions; \

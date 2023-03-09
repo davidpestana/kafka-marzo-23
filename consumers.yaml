@@ -2,8 +2,8 @@ services:
   consumer-1:
     image: node
     command: ['node', 'index.js']
-    # deploy:
-    #   replicas: 10
+    deploy:
+      replicas: 10
     working_dir: /app
     volumes:
       - ./src/consumer:/app
