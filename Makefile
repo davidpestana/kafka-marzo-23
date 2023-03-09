@@ -32,3 +32,36 @@ topic-describe:
 topic-list:
 	docker compose -f services.yaml run --rm tools bash -c \
 		"./bin/kafka-topics.sh --bootstrap-server $(bootstrap-server) --list"
+
+producer-create:
+	@read -p "Enter topic name: " topic; \
+	docker compose -f services.yaml run --rm tools bash -c \
+		"./bin/kafka-console-producer.sh --bootstrap-server $(bootstrap-server) --topic $$topic"
+	
+consumer-create:
+	@read -p "Enter topic name: " topic; \
+	read -p "Enter group name: " group; \
+	docker compose -f services.yaml run --rm tools bash -c \
+		"./bin/kafka-console-consumer.sh --bootstrap-server $(bootstrap-server) --topic $$topic --group $$group"
+
+consumer-create-fb:
+	@read -p "Enter topic name: " topic; \
+	read -p "Enter group name: " group; \
+	docker compose -f services.yaml run --rm tools bash -c \
+		"./bin/kafka-console-consumer.sh --bootstrap-server $(bootstrap-server) --topic $$topic --group $$group --from-beginning"
+
+groups-list:
+	docker compose -f services.yaml run --rm tools bash -c \
+		"./bin/kafka-consumer-groups.sh --bootstrap-server $(bootstrap-server) --list"
+
+
+groups-describe:
+	docker compose -f services.yaml run --rm tools bash -c \
+		"./bin/kafka-consumer-groups.sh --bootstrap-server $(bootstrap-server) --describe --all-groups"
+
+group-describe:
+	@read -p "Enter group name: " group; \
+	docker compose -f services.yaml run --rm tools bash -c \
+		"./bin/kafka-consumer-groups.sh --bootstrap-server $(bootstrap-server) --describe --group $$group"
+tools:
+	docker compose -f services.yaml run --rm tools
