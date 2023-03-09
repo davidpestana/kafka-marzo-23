@@ -10,6 +10,9 @@ start-producers:
 	docker compose  -f producers.yaml up -d
 
 
+du:
+	du --max-depth=1 -h data/
+
 logs:
 	docker compose logs -f
 
