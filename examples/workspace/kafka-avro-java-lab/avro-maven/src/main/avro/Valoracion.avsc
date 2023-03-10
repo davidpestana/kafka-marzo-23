@@ -1,0 +1,9 @@
+{
+  "namespace": "com.curso.kafka.avro.model",
+  "type": "record",
+  "name": "Valoracion",
+  "fields": [
+    {"name": "id", "type": "long"},
+    {"name": "valoracion", "type": "double"}
+  ]
+}

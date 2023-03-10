@@ -1,0 +1,53 @@
+version: "3"
+services:
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    # ports:
+    #   - '2181:2181'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+      - ZOO_4LW_COMMANDS_WHITELIST=stat, ruok, conf, isro
+    # network_mode: host
+  kafka1:
+    image: 'bitnami/kafka:latest'
+    network_mode: host
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_LISTENERS=PLAINTEXT://:9091
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9091
+      - KAFKA_ZOOKEEPER_CONNECT=127.0.0.1:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
+  kafka2:
+    image: 'bitnami/kafka:latest'
+    network_mode: host
+    environment:
+      - KAFKA_BROKER_ID=2
+      - KAFKA_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
+      - KAFKA_ZOOKEEPER_CONNECT=127.0.0.1:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
+  kafka3:
+    image: 'bitnami/kafka:latest'
+    network_mode: host
+    environment:
+      - KAFKA_BROKER_ID=3
+      - KAFKA_LISTENERS=PLAINTEXT://:9093
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9093
+      - KAFKA_ZOOKEEPER_CONNECT=127.0.0.1:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    depends_on:
+      - zookeeper
+  schema_registry:
+    image: confluentinc/cp-schema-registry:6.0.0
+    network_mode: host
+    environment: 
+      - "SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS=localhost:9091,localhost:9092,localhost:9093"
+      - "SCHEMA_REGISTRY_HOST_NAME=localhost"
+    depends_on: 
+      - kafka1
+      - kafka2
+      - kafka3

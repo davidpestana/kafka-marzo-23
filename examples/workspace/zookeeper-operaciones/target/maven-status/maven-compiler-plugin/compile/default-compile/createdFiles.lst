@@ -1,0 +1,5 @@
+com/kafka/zookeeper/CreateGroup.class
+com/kafka/zookeeper/JoinGroup.class
+com/kafka/zookeeper/ListGroup.class
+com/kafka/zookeeper/DeleteGroup.class
+com/kafka/zookeeper/ConnectionWatcher.class

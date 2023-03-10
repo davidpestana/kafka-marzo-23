@@ -1,0 +1,11 @@
+{
+  "namespace": "com.curso.kafka.avro.model",
+  "type": "record",
+  "name": "PeliculaValorada",
+  "fields": [
+     {"name": "id", "type": "long"},
+     {"name": "titulo", "type": "string"},
+     {"name": "year_pub", "type": "int"},
+     {"name": "valoracion", "type": "double"}
+  ]
+}

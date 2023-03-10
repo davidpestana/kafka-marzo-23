@@ -1,0 +1,19 @@
+{
+      "name": "Detalles",
+      "namespace":"com.curso.kafka.avro.model",
+      "type": "record",
+      "fields": [
+          {
+              "name": "id",
+              "type": "long"
+          },{
+              "name": "principal",
+              "type": "string"
+          },{
+              "name": "descripcion",
+              "type": "string"
+          },{
+              "name": "icono",
+              "type": "string"
+          }
+] }

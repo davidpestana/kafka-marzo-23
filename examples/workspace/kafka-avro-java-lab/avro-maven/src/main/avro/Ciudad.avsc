@@ -1,0 +1,11 @@
+{
+    "name": "Ciudad",
+    "namespace":"com.curso.kafka.avro.model",
+    "type": "record",
+    "fields":[
+        {
+            "name":"ciudad",
+            "type":"string"
+        }
+    ]
+}

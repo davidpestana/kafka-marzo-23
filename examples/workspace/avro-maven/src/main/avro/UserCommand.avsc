@@ -1,0 +1,11 @@
+{
+	"namespace":"com.curso.kafka.avro.model",
+	"name":"UserCommand",
+	"type":"record",
+	"fields": [
+		{ 
+			"name":"command",
+			"type":"string"
+		}
+	]
+}

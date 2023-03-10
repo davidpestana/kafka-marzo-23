@@ -1,0 +1,23 @@
+{
+    "name": "Datos",
+    "namespace":"com.curso.kafka.avro.model",
+    "type": "record",
+    "fields":[
+        {
+            "name":"temp",
+            "type":"float"
+        },
+        {
+            "name":"presion",
+            "type":"int"
+        },{
+            "name":"humedad",
+            "type":"int"
+        },{
+            "name":"tempMin",
+            "type":"float"
+        },{
+            "name":"tempMax",
+            "type":"float"
+    } ]
+}

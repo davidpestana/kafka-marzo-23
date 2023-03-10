@@ -1,0 +1,28 @@
+{
+    "name":"Clima",
+    "namespace":"com.curso.kafka.avro.model",
+    "type": "record",
+    "fields": [
+          {
+              "name":"id",
+              "type":"long"
+          },
+          {
+              "name":"nombre",
+              "type":"string"
+          },
+          {
+              "name": "datos",
+              "type": "Datos"
+          },{
+                "name": "detalles",
+                "type": {
+                    "type": "array",
+                    "items":{
+                        "name":"detalles",
+                        "type":"Detalles"
+                    }
+                } 
+            }
+    ]
+}

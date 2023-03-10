@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch ListGroup",
+            "request": "launch",
+            "mainClass": "com.kafka.zookeeper.ListGroup",
+            "projectName": "api-zookeeper",
+            "args": "zookeeper pepe"
+        },
+        {
+            "type": "java",
+            "name": "Launch CreateGroup",
+            "request": "launch",
+            "mainClass": "com.kafka.zookeeper.CreateGroup",
+            "projectName": "api-zookeeper",
+            "args": "zookeeper pepe"
+        },
+        {
+            "type": "java",
+            "name": "Launch JoinGroup",
+            "request": "launch",
+            "mainClass": "com.kafka.zookeeper.JoinGroup",
+            "projectName": "api-zookeeper",
+            "args": "zookeeper pepe juan"
+        },
+        {
+            "type": "java",
+            "name": "Launch JoinGroup",
+            "request": "launch",
+            "mainClass": "com.kafka.zookeeper.JoinGroup",
+            "projectName": "api-zookeeper"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+  "namespace": "com.curso.kafka.avro.model",
+  "type": "record",
+  "name": "Pelicula",
+  "fields": [
+    {"name": "id", "type": "long"},
+    {"name": "titulo", "type": "string"},
+    {"name": "year_pub", "type": "int"}
+  ]
+}
